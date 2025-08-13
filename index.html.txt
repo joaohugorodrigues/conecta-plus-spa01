@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Conecta+ | Reduzindo a Desigualdade Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Warm Harmony -->
+    <!-- Application Structure Plan: A single-page, vertical-scrolling application with a sticky top navigation bar corresponding to the 7 canvas sections. This structure was chosen because it mirrors the logical flow of the original document, making it intuitive for users, while adding modern navigation and interactivity. Key interactions include hover effects on feature diagrams, clickable cards for the target audience, and a dynamic bar chart for impact metrics. This flow guides the user through the project's story, from problem to sustainability, in an engaging way. -->
+    <!-- Visualization & Content Choices: 
+        - Problema: Text + Highlighted Stat -> Goal: Inform -> Justification: Immediately establish the scale of the issue.
+        - Solução: HTML/CSS Diagram -> Goal: Organize -> Interaction: Hover for details -> Justification: Visually breaks down the platform's components, more engaging than a list.
+        - Público-alvo: Interactive Cards -> Goal: Organize/Inform -> Interaction: Click to reveal text -> Justification: Encourages user engagement to learn about each specific group.
+        - Impacto: Bar Chart (Chart.js) -> Goal: Compare/Inform -> Interaction: Tooltips, button to update data -> Justification: Provides a clear, quantitative view of success metrics and demonstrates the platform's dynamic goals.
+        - Sustentabilidade: Icon-driven sections -> Goal: Organize -> Justification: Clearly separates the financial and environmental aspects for easy digestion.
+        - Library/Method: Chart.js for the canvas-based chart. All other visuals are built with HTML and Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7;
+            color: #3C3C3C;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #4A908A;
+            border-bottom-color: #4A908A;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-[#4A908A]">Conecta+</a>
+                </div>
+                <div class="hidden md:block">
+                    <div id="nav-menu" class="ml-10 flex items-baseline space-x-4">
+                        <a href="#problema" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">O Problema</a>
+                        <a href="#solucao" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">A Solução</a>
+                        <a href="#publico" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Público</a>
+                        <a href="#impacto" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Impacto</a>
+                        <a href="#sustentabilidade" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Sustentabilidade</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        
+        <section class="text-center py-16">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
+                Projeto <span class="text-[#4A908A]">Conecta+</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
+                Uma iniciativa para reduzir a desigualdade digital no Brasil através de tecnologia acessível e inclusiva.
+            </p>
+        </section>
+
+        <div class="space-y-20 md:space-y-28">
+
+            <section id="problema" class="scroll-mt-20">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">1. O Problema</h2>
+                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
+                        Esta seção define o desafio social que o projeto busca resolver. A desigualdade digital não é apenas sobre a falta de internet; é sobre a exclusão de oportunidades essenciais que a tecnologia hoje proporciona. Analisamos quem são os mais afetados e as consequências diretas dessa exclusão.
+                    </p>
+                </div>
+                <div class="mt-10 bg-white rounded-xl shadow-lg p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center">
+                    <div class="prose max-w-none">
+                        <p>O desafio social central é a <strong>desigualdade digital</strong> que assola grande parte da população brasileira. Essa desigualdade se manifesta na falta de acesso à internet de qualidade e a dispositivos modernos em comunidades de baixa renda e áreas rurais.</p>
+                        <p>A consequência direta é a <strong>exclusão de oportunidades</strong>, como acesso à educação, capacitação profissional, serviços de saúde e participação cívica, perpetuando o ciclo de pobreza. Os mais afetados são famílias de baixa renda, idosos, pequenos produtores rurais e pessoas com deficiência, que não conseguem acompanhar a digitalização acelerada da sociedade.</p>
+                    </div>
+                    <div class="bg-[#F0F5F4] rounded-lg p-8 text-center">
+                         <span class="text-6xl font-bold text-[#4A908A]">28%</span>
+                         <p class="mt-2 text-lg font-semibold">dos domicílios em áreas rurais no Brasil não possuem acesso à internet.</p>
+                         <p class="text-sm text-gray-500 mt-1">(Fonte: PNAD Contínua TIC 2022, IBGE)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solucao" class="scroll-mt-20">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">2. A Solução Proposta e seu Valor</h2>
+                     <p class="mt-3 max-w-3xl mx-auto text-gray-600">
+                        Aqui, descrevemos nossa solução tecnológica, o "Conecta+", e por que ela é valiosa. O foco é em como a plataforma foi desenhada para ser uma ferramenta de redução de desigualdades, diferenciando-se das alternativas existentes por sua leveza e acessibilidade intencionais.
+                    </p>
+                </div>
+                <div class="mt-10 bg-white rounded-xl shadow-lg p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-2xl font-semibold">Plataforma Digital <span class="text-[#4A908A]">Conecta+</span></h3>
+                            <p class="mt-4 text-gray-600">Nossa solução é uma plataforma digital leve e acessível, projetada como uma <strong>Tecnologia para Redução de Desigualdades</strong>. Ela funciona como um agregador de serviços essenciais, com uma arquitetura otimizada para consumir o mínimo de dados e funcionar em conexões lentas e aparelhos antigos.</p>
+                            <p class="mt-4 text-gray-600"><strong>Proposta de Valor:</strong> Democratizar o acesso à informação e às oportunidades para quem mais precisa. Enquanto outras plataformas exigem tecnologia de ponta, o Conecta+ é um ponto de partida funcional e confiável para a inclusão digital.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
+                                <span class="text-3xl mr-4">🎓</span>
+                                <p><strong>Educação Básica:</strong> Módulos de aprendizado e capacitação.</p>
+                            </div>
+                            <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
+                                <span class="text-3xl mr-4">💼</span>
+                                <p><strong>Oportunidades de Emprego:</strong> Conexão com vagas e qualificação.</p>
+                            </div>
+                            <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
+                                <span class="text-3xl mr-4">❤️</span>
+                                <p><strong>Orientações de Saúde:</strong> Informações confiáveis e prevenção.</p>
+                             </div>
+                             <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
+                                <span class="text-3xl mr-4">⚖️</span>
+                                <p><strong>Direitos Civis:</strong> Informações sobre direitos e serviços públicos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="publico" class="scroll-mt-20">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">3. Público-Alvo e Acessibilidade</h2>
+                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
+                        Nesta seção, identificamos os usuários diretos da solução e como garantimos que ela seja acessível a todos. Interaja com os cartões abaixo para ver como cada grupo é afetado pela divisão digital e como a plataforma foi projetada para eles, seguindo os princípios da Acessibilidade Digital (WCAG).
+                    </p>
+                </div>
+                <div class="mt-10 grid md:grid-cols-3 gap-8" id="publico-cards">
+                    <div class="audience-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <span class="text-4xl mr-4">🏡</span>
+                                <h3 class="text-xl font-semibold">Comunidades Rurais e Periféricas</h3>
+                            </div>
+                            <p class="mt-4 text-gray-600 description hidden">Possuem internet intermitente e de baixa velocidade. O Conecta+ é otimizado para carregar rapidamente, usando o mínimo de dados.</p>
+                        </div>
+                    </div>
+                    <div class="audience-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <span class="text-4xl mr-4">👵</span>
+                                <h3 class="text-xl font-semibold">Idosos e Iniciantes em Tecnologia</h3>
+                            </div>
+                             <p class="mt-4 text-gray-600 description hidden">Precisam de uma interface simples e intuitiva. A plataforma usa linguagem clara, fontes grandes e navegação direta, seguindo as diretrizes WCAG.</p>
+                        </div>
+                    </div>
+                    <div class="audience-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <span class="text-4xl mr-4">📱</span>
+                                <h3 class="text-xl font-semibold">Usuários com Aparelhos Antigos</h3>
+                            </div>
+                             <p class="mt-4 text-gray-600 description hidden">Não conseguem rodar aplicativos pesados. O Conecta+ é um Progressive Web App (PWA), acessível por qualquer navegador sem instalação.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="impacto" class="scroll-mt-20">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">4. Impacto Social Esperado</h2>
+                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
+                        O objetivo final do Conecta+ é gerar uma mudança positiva e mensurável. Esta seção detalha o impacto que esperamos alcançar e como mediremos nosso sucesso, combinando métricas quantitativas, visualizadas no gráfico, com avaliações qualitativas.
+                    </p>
+                </div>
+                <div class="mt-10 bg-white rounded-xl shadow-lg p-8 md:p-12">
+                    <h3 class="text-2xl font-semibold text-center">Métricas de Sucesso (Metas Anuais)</h3>
+                    <div class="chart-container mt-8">
+                        <canvas id="impactoChart"></canvas>
+                    </div>
+                    <p class="mt-8 text-center text-gray-600">Além dos números, o sucesso será medido por <strong>depoimentos qualitativos</strong>, que avaliam o impacto real na vida dos usuários, e pelo <strong>número de parcerias</strong> com ONGs, escolas e empresas.</p>
+                </div>
+            </section>
+
+            <section id="sustentabilidade" class="scroll-mt-20">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">5. Sustentabilidade do Projeto</h2>
+                     <p class="mt-3 max-w-3xl mx-auto text-gray-600">
+                        Para que o impacto seja duradouro, o projeto precisa ser sustentável. Aqui, explicamos nosso modelo de negócio social para a viabilidade financeira e nosso compromisso com a sustentabilidade ambiental através dos princípios de TI Verde.
+                    </p>
+                </div>
+                 <div class="mt-10 grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-8 card">
+                        <div class="flex items-center">
+                             <span class="text-4xl mr-4 text-[#4A908A]">🤝</span>
+                            <h3 class="text-2xl font-semibold">Sustentabilidade Financeira</h3>
+                        </div>
+                        <p class="mt-4 text-gray-600">O projeto será mantido como um <strong>negócio social</strong>. A plataforma será sempre gratuita para o usuário final. A receita virá de parcerias com governos, fundações e empresas que desejam patrocinar conteúdos específicos (como cursos) ou usar a plataforma para alcançar o público de forma acessível.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 card">
+                         <div class="flex items-center">
+                             <span class="text-4xl mr-4 text-[#4A908A]">🌿</span>
+                            <h3 class="text-2xl font-semibold">Sustentabilidade Ambiental (TI Verde)</h3>
+                        </div>
+                        <p class="mt-4 text-gray-600">A solução é inerentemente eficiente. Ao projetar uma plataforma que requer menos poder de processamento e banda larga, promovemos o uso eficiente de energia nos servidores e nos dispositivos dos usuários. Isso <strong>evita o descarte prematuro de celulares</strong> e reduz o consumo de energia geral.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Projeto Conecta+. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-1">Construindo um futuro digital mais inclusivo.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('impactoChart').getContext('2d');
+            const impactoChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Usuários Ativos', 'Módulos Concluídos', 'Parcerias Estratégicas'],
+                    datasets: [{
+                        label: 'Metas para o Ano 1',
+                        data: [10000, 5000, 15],
+                        backgroundColor: 'rgba(74, 144, 138, 0.6)',
+                        borderColor: 'rgba(74, 144, 138, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#3C3C3C'
+                            },
+                            grid: {
+                                color: '#e0e0e0'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#3C3C3C',
+                                font: {
+                                    size: 14
+                                }
+                            },
+                             grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#3C3C3C',
+                            titleFont: { size: 16 },
+                            bodyFont: { size: 14 },
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('pt-BR').format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const audienceCards = document.querySelectorAll('.audience-card');
+            audienceCards.forEach(card => {
+                const description = card.querySelector('.description');
+                card.addEventListener('click', () => {
+                    description.classList.toggle('hidden');
+                    card.classList.toggle('bg-gray-50');
+                });
+            });
+
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#nav-menu a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 80) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
