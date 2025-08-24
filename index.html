@@ -1,5 +1,3 @@
-<!-- Este é o arquivo principal do seu projeto, 'index.html'. -->
-<!-- Ele está pronto para ser publicado no GitHub Pages. -->
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
@@ -12,17 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Chosen Palette: Warm Harmony -->
-    <!-- Application Structure Plan: A single-page, vertical-scrolling application with a sticky top navigation bar corresponding to the 7 canvas sections. This structure was chosen because it mirrors the logical flow of the original document, making it intuitive for users, while adding modern navigation and interactivity. Key interactions include hover effects on feature diagrams, clickable cards for the target audience, and a dynamic bar chart for impact metrics. This flow guides the user through the project's story, from problem to sustainability, in an engaging way. -->
-    <!-- Visualization & Content Choices: 
-        - Problema: Text + Highlighted Stat -> Goal: Inform -> Justification: Immediately establish the scale of the issue.
-        - Solução: HTML/CSS Diagram -> Goal: Organize -> Interaction: Hover for details -> Justification: Visually breaks down the platform's components, more engaging than a list.
-        - Público-alvo: Interactive Cards -> Goal: Organize/Inform -> Interaction: Click to reveal text -> Justification: Encourages user engagement to learn about each specific group.
-        - Impacto: Bar Chart (Chart.js) -> Goal: Compare/Inform -> Interaction: Tooltips, button to update data -> Justification: Provides a clear, quantitative view of success metrics and demonstrates the platform's dynamic goals.
-        - Sustentabilidade: Icon-driven sections -> Goal: Organize -> Justification: Clearly separates the financial and environmental aspects for easy digestion.
-        - Library/Method: Chart.js for the canvas-based chart. All other visuals are built with HTML and Tailwind CSS. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -74,7 +61,9 @@
                         <a href="#solucao" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">A Solução</a>
                         <a href="#publico" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Público</a>
                         <a href="#impacto" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Impacto</a>
+                        <a href="#cursos" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Cursos</a>
                         <a href="#sustentabilidade" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Sustentabilidade</a>
+                        <a href="#login" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Login</a>
                     </div>
                 </div>
             </div>
@@ -140,198 +129,7 @@
                             <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
                                 <span class="text-3xl mr-4">❤️</span>
                                 <p><strong>Orientações de Saúde:</strong> Informações confiáveis e prevenção.</p>
-                             </div>
-                             <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
+                            </div>
+                            <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
                                 <span class="text-3xl mr-4">⚖️</span>
-                                <p><strong>Direitos Civis:</strong> Informações sobre direitos e serviços públicos.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="publico" class="scroll-mt-20">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold">3. Público-Alvo e Acessibilidade</h2>
-                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
-                        Nesta seção, identificamos os usuários diretos da solução e como garantimos que ela seja acessível a todos. Interaja com os cartões abaixo para ver como cada grupo é afetado pela divisão digital e como a plataforma foi projetada para eles, seguindo os princípios da Acessibilidade Digital (WCAG).
-                    </p>
-                </div>
-                <div class="mt-10 grid md:grid-cols-3 gap-8" id="publico-cards">
-                    <div class="audience-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <span class="text-4xl mr-4">🏡</span>
-                                <h3 class="text-xl font-semibold">Comunidades Rurais e Periféricas</h3>
-                            </div>
-                            <p class="mt-4 text-gray-600 description hidden">Possuem internet intermitente e de baixa velocidade. O Conecta+ é otimizado para carregar rapidamente, usando o mínimo de dados.</p>
-                        </div>
-                    </div>
-                    <div class="audience-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <span class="text-4xl mr-4">👵</span>
-                                <h3 class="text-xl font-semibold">Idosos e Iniciantes em Tecnologia</h3>
-                            </div>
-                            <p class="mt-4 text-gray-600 description hidden">Precisam de uma interface simples e intuitiva. A plataforma usa linguagem clara, fontes grandes e navegação direta, seguindo as diretrizes WCAG.</p>
-                        </div>
-                    </div>
-                    <div class="audience-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <span class="text-4xl mr-4">📱</span>
-                                <h3 class="text-xl font-semibold">Usuários com Aparelhos Antigos</h3>
-                            </div>
-                            <p class="mt-4 text-gray-600 description hidden">Não conseguem rodar aplicativos pesados. O Conecta+ é um Progressive Web App (PWA), acessível por qualquer navegador sem instalação.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="impacto" class="scroll-mt-20">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold">4. Impacto Social Esperado</h2>
-                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
-                        O objetivo final do Conecta+ é gerar uma mudança positiva e mensurável. Esta seção detalha o impacto que esperamos alcançar e como mediremos nosso sucesso, combinando métricas quantitativas, visualizadas no gráfico, com avaliações qualitativas.
-                    </p>
-                </div>
-                <div class="mt-10 bg-white rounded-xl shadow-lg p-8 md:p-12">
-                    <h3 class="text-2xl font-semibold text-center">Métricas de Sucesso (Metas Anuais)</h3>
-                    <div class="chart-container mt-8">
-                        <canvas id="impactoChart"></canvas>
-                    </div>
-                    <p class="mt-8 text-center text-gray-600">Além dos números, o sucesso será medido por <strong>depoimentos qualitativos</strong>, que avaliam o impacto real na vida dos usuários, e pelo <strong>número de parcerias</strong> com ONGs, escolas e empresas.</p>
-                </div>
-            </section>
-
-            <section id="sustentabilidade" class="scroll-mt-20">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold">5. Sustentabilidade do Projeto</h2>
-                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
-                        Para que o impacto seja duradouro, o projeto precisa ser sustentável. Aqui, explicamos nosso modelo de negócio social para a viabilidade financeira e nosso compromisso com a sustentabilidade ambiental através dos princípios de TI Verde.
-                    </p>
-                </div>
-                <div class="mt-10 grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-xl shadow-lg p-8 card">
-                        <div class="flex items-center">
-                            <span class="text-4xl mr-4 text-[#4A908A]">🤝</span>
-                            <h3 class="text-2xl font-semibold">Sustentabilidade Financeira</h3>
-                        </div>
-                        <p class="mt-4 text-gray-600">O projeto será mantido como um <strong>negócio social</strong>. A plataforma será sempre gratuita para o usuário final. A receita virá de parcerias com governos, fundações e empresas que desejam patrocinar conteúdos específicos (como cursos) ou usar a plataforma para alcançar o público de forma acessível.</p>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 card">
-                        <div class="flex items-center">
-                            <span class="text-4xl mr-4 text-[#4A908A]">🌿</span>
-                            <h3 class="text-2xl font-semibold">Sustentabilidade Ambiental (TI Verde)</h3>
-                        </div>
-                        <p class="mt-4 text-gray-600">A solução é inerentemente eficiente. Ao projetar uma plataforma que requer menos poder de processamento e banda larga, promovemos o uso eficiente de energia nos servidores e nos dispositivos dos usuários. Isso <strong>evita o descarte prematuro de celulares</strong> e reduz o consumo de energia geral.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer class="bg-gray-800 text-white mt-20">
-        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 Projeto Conecta+. Todos os direitos reservados.</p>
-            <p class="text-sm text-gray-400 mt-1">Construindo um futuro digital mais inclusivo.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const ctx = document.getElementById('impactoChart').getContext('2d');
-            const impactoChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Usuários Ativos', 'Módulos Concluídos', 'Parcerias Estratégicas'],
-                    datasets: [{
-                        label: 'Metas para o Ano 1',
-                        data: [10000, 5000, 15],
-                        backgroundColor: 'rgba(74, 144, 138, 0.6)',
-                        borderColor: 'rgba(74, 144, 138, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                color: '#3C3C3C'
-                            },
-                            grid: {
-                                color: '#e0e0e0'
-                            }
-                        },
-                        x: {
-                            ticks: {
-                                color: '#3C3C3C',
-                                font: {
-                                    size: 14
-                                }
-                            },
-                            grid: {
-                                display: false
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            backgroundColor: '#3C3C3C',
-                            titleFont: { size: 16 },
-                            bodyFont: { size: 14 },
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.y !== null) {
-                                        label += new Intl.NumberFormat('pt-BR').format(context.parsed.y);
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            const audienceCards = document.querySelectorAll('.audience-card');
-            audienceCards.forEach(card => {
-                const description = card.querySelector('.description');
-                card.addEventListener('click', () => {
-                    description.classList.toggle('hidden');
-                    card.classList.toggle('bg-gray-50');
-                });
-            });
-
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('#nav-menu a');
-
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (pageYOffset >= sectionTop - 80) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+                                <p><strong>Direitos
