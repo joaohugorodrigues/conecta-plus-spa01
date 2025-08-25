@@ -82,8 +82,7 @@
         </section>
 
         <div class="space-y-20 md:space-y-28">
-
-            <section id="problema" class="scroll-mt-20">
+<section id="problema" class="scroll-mt-20">
                 <div class="text-center">
                     <h2 class="text-3xl font-bold">1. O Problema</h2>
                     <p class="mt-3 max-w-3xl mx-auto text-gray-600">
@@ -256,4 +255,135 @@
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
                             <div class="mt-1">
-                                <input id="email" name="email" type="email" autocomplete="email" required
+                                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#4A908A] focus:border-[#4A908A] sm:text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
+                            <div class="mt-1">
+                                <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#4A908A] focus:border-[#4A908A] sm:text-sm">
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-[#4A908A] focus:ring-[#4A908A] border-gray-300 rounded">
+                                <label for="remember-me" class="ml-2 block text-sm text-gray-900">Lembrar-me</label>
+                            </div>
+                            <div class="text-sm">
+                                <a href="#" class="font-medium text-[#4A908A] hover:text-[#3a756f]">Esqueceu a senha?</a>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#4A908A] hover:bg-[#3a756f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4A908A]">
+                                Entrar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+<footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Projeto Conecta+. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-1">Construindo um futuro digital mais inclusivo.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('impactoChart').getContext('2d');
+            const impactoChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Usuários Ativos', 'Módulos Concluídos', 'Parcerias Estratégicas'],
+                    datasets: [{
+                        label: 'Metas para o Ano 1',
+                        data: [10000, 5000, 15],
+                        backgroundColor: 'rgba(74, 144, 138, 0.6)',
+                        borderColor: 'rgba(74, 144, 138, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#3C3C3C'
+                            },
+                            grid: {
+                                color: '#e0e0e0'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#3C3C3C',
+                                font: {
+                                    size: 14
+                                }
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#3C3C3C',
+                            titleFont: { size: 16 },
+                            bodyFont: { size: 14 },
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('pt-BR').format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const audienceCards = document.querySelectorAll('.audience-card');
+            audienceCards.forEach(card => {
+                const description = card.querySelector('.description');
+                card.addEventListener('click', () => {
+                    description.classList.toggle('hidden');
+                    card.classList.toggle('bg-gray-50');
+                });
+            });
+
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#nav-menu a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 80) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
