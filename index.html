@@ -10,6 +10,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <!-- Chosen Palette: Warm Harmony -->
+    <!-- Application Structure Plan: A single-page, vertical-scrolling application with a sticky top navigation bar corresponding to the 7 canvas sections. This structure was chosen because it mirrors the logical flow of the original document, making it intuitive for users, while adding modern navigation and interactivity. Key interactions include hover effects on feature diagrams, clickable cards for the target audience, and a dynamic bar chart for impact metrics. This flow guides the user through the project's story, from problem to sustainability, in an engaging way. -->
+    <!-- Visualization & Content Choices: 
+        - Problema: Text + Highlighted Stat -> Goal: Inform -> Justification: Immediately establish the scale of the issue.
+        - Solução: HTML/CSS Diagram -> Goal: Organize -> Interaction: Hover for details -> Justification: Visually breaks down the platform's components, more engaging than a list.
+        - Público-alvo: Interactive Cards -> Goal: Organize/Inform -> Interaction: Click to reveal text -> Justification: Encourages user engagement to learn about each specific group.
+        - Impacto: Bar Chart (Chart.js) -> Goal: Compare/Inform -> Interaction: Tooltips, button to update data -> Justification: Provides a clear, quantitative view of success metrics and demonstrates the platform's dynamic goals.
+        - Sustentabilidade: Icon-driven sections -> Goal: Organize -> Justification: Clearly separates the financial and environmental aspects for easy digestion.
+        - Library/Method: Chart.js for the canvas-based chart. All other visuals are built with HTML and Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -38,9 +49,6 @@
             color: #4A908A;
             border-bottom-color: #4A908A;
         }
-        .card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -57,13 +65,15 @@
                 </div>
                 <div class="hidden md:block">
                     <div id="nav-menu" class="ml-10 flex items-baseline space-x-4">
+                        <a href="#pilares" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Nossos Pilares</a>
+                        <a href="#conexao-comunitaria" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Conexão Comunitária</a>
                         <a href="#problema" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">O Problema</a>
                         <a href="#solucao" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">A Solução</a>
                         <a href="#publico" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Público</a>
                         <a href="#impacto" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Impacto</a>
-                        <a href="#cursos" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Cursos</a>
                         <a href="#sustentabilidade" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Sustentabilidade</a>
-                        <a href="#login" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Login</a>
+                        <a href="#cursos" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Cursos</a>
+                        <a href="#login-registro" class="nav-link px-3 py-2 rounded-md text-sm font-semibold">Acesso</a>
                     </div>
                 </div>
             </div>
@@ -82,9 +92,73 @@
         </section>
 
         <div class="space-y-20 md:space-y-28">
-<section id="problema" class="scroll-mt-20">
+
+            <section id="pilares" class="scroll-mt-20">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold">1. O Problema</h2>
+                    <h2 class="text-3xl font-bold">Nossos Pilares</h2>
+                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
+                        O projeto Conecta+ é construído sobre três fundamentos essenciais, que guiam nossa missão de gerar um impacto social positivo e duradouro.
+                    </p>
+                </div>
+                <div class="mt-10 grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-8 text-center card">
+                        <span class="text-6xl text-[#4A908A]">🌍</span>
+                        <h3 class="text-xl font-semibold mt-4">Inclusão Digital</h3>
+                        <p class="mt-2 text-gray-600">Democratizar o acesso à informação e à tecnologia para todos, combatendo a exclusão e criando oportunidades.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 text-center card">
+                        <span class="text-6xl text-[#4A908A]">🌱</span>
+                        <h3 class="text-xl font-semibold mt-4">Sustentabilidade</h3>
+                        <p class="mt-2 text-gray-600">Construir um projeto socialmente e financeiramente viável, com foco em responsabilidade ambiental e eficiência energética.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-8 text-center card">
+                        <span class="text-6xl text-[#4A908A]">💡</span>
+                        <h3 class="text-xl font-semibold mt-4">Empoderamento</h3>
+                        <p class="mt-2 text-gray-600">Capacitar indivíduos através do conhecimento, oferecendo ferramentas para que possam transformar suas próprias vidas e comunidades.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="conexao-comunitaria" class="scroll-mt-20">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">Conexão Comunitária</h2>
+                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
+                        Promovendo a inclusão digital através de mentoria e aprendizado colaborativo.
+                    </p>
+                </div>
+                <div class="mt-10 bg-white rounded-xl shadow-lg p-8 md:p-12">
+                    <h3 class="text-2xl font-semibold text-center mb-4">Trilha de Aprendizado Guiada</h3>
+                    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                        A "Conexão Comunitária" visa ligar a tecnologia às pessoas, especialmente aquelas de comunidades de baixa renda e que enfrentam desafios tecnológicos. Nosso objetivo é criar uma rede de mentores e uma trilha de aprendizado para que os usuários possam começar sua jornada no mundo digital de forma colaborativa e divertida.
+                    </p>
+                    <div class="grid md:grid-cols-4 gap-8">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-[#4A908A] text-white rounded-full flex items-center justify-center text-2xl font-bold">1</div>
+                            <h4 class="mt-4 font-semibold text-lg">Início</h4>
+                            <p class="mt-2 text-sm text-gray-600">Primeiro contato com o celular e a internet. Aprenda a acessar sites e a usar aplicativos básicos com segurança.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-[#4A908A] text-white rounded-full flex items-center justify-center text-2xl font-bold">2</div>
+                            <h4 class="mt-4 font-semibold text-lg">Fundamentos</h4>
+                            <p class="mt-2 text-sm text-gray-600">Aprenda a criar um e-mail, gerenciar redes sociais e pesquisar online para resolver problemas do dia a dia.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-[#4A908A] text-white rounded-full flex items-center justify-center text-2xl font-bold">3</div>
+                            <h4 class="mt-4 font-semibold text-lg">Ferramentas</h4>
+                            <p class="mt-2 text-sm text-gray-600">Descubra como usar ferramentas de produtividade como o Google Docs e Sheets para organizar suas finanças ou criar um currículo.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-[#4A908A] text-white rounded-full flex items-center justify-center text-2xl font-bold">4</div>
+                            <h4 class="mt-4 font-semibold text-lg">Avançado</h4>
+                            <p class="mt-2 text-sm text-gray-600">Prepare-se para o mercado de trabalho com cursos sobre desenvolvimento web, marketing digital ou design. O futuro está em suas mãos!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="problema" class="scroll-mt-20">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">O Problema</h2>
                     <p class="mt-3 max-w-3xl mx-auto text-gray-600">
                         Esta seção define o desafio social que o projeto busca resolver. A desigualdade digital não é apenas sobre a falta de internet; é sobre a exclusão de oportunidades essenciais que a tecnologia hoje proporciona. Analisamos quem são os mais afetados e as consequências diretas dessa exclusão.
                     </p>
@@ -104,7 +178,7 @@
 
             <section id="solucao" class="scroll-mt-20">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold">2. A Solução Proposta e seu Valor</h2>
+                    <h2 class="text-3xl font-bold">A Solução Proposta e seu Valor</h2>
                     <p class="mt-3 max-w-3xl mx-auto text-gray-600">
                         Aqui, descrevemos nossa solução tecnológica, o "Conecta+", e por que ela é valiosa. O foco é em como a plataforma foi desenhada para ser uma ferramenta de redução de desigualdades, diferenciando-se das alternativas existentes por sua leveza e acessibilidade intencionais.
                     </p>
@@ -128,8 +202,8 @@
                             <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
                                 <span class="text-3xl mr-4">❤️</span>
                                 <p><strong>Orientações de Saúde:</strong> Informações confiáveis e prevenção.</p>
-                            </div>
-                            <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
+                             </div>
+                             <div class="flex items-center p-4 bg-gray-50 rounded-lg card">
                                 <span class="text-3xl mr-4">⚖️</span>
                                 <p><strong>Direitos Civis:</strong> Informações sobre direitos e serviços públicos.</p>
                             </div>
@@ -140,7 +214,7 @@
 
             <section id="publico" class="scroll-mt-20">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold">3. Público-Alvo e Acessibilidade</h2>
+                    <h2 class="text-3xl font-bold">Público-Alvo e Acessibilidade</h2>
                     <p class="mt-3 max-w-3xl mx-auto text-gray-600">
                         Nesta seção, identificamos os usuários diretos da solução e como garantimos que ela seja acessível a todos. Interaja com os cartões abaixo para ver como cada grupo é afetado pela divisão digital e como a plataforma foi projetada para eles, seguindo os princípios da Acessibilidade Digital (WCAG).
                     </p>
@@ -174,11 +248,16 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="mt-10 bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-3xl font-bold">Escolas e ONGs</h2>
+                    <p class="mt-4 text-gray-600">O Conecta+ transforma escolas e ONGs em centros de inclusão digital. Como um aliado tecnológico, nossa plataforma oferece um ambiente seguro e acessível que complementa o aprendizado para todas as idades. <strong>Para as crianças</strong>, oferecemos módulos lúdicos que introduzem conceitos básicos de tecnologia. <strong>Para os jovens</strong>, é uma ponte para o futuro, com cursos e ferramentas que os preparam para o mercado de trabalho. E <strong>para os adultos</strong>, abrimos as portas para o acesso a informações essenciais, capacitação e direitos, promovendo a autonomia e o empoderamento. Com o Conecta+, sua instituição se torna um agente de transformação, levando oportunidades e conhecimento diretamente a quem mais precisa.</p>
+                </div>
             </section>
 
             <section id="impacto" class="scroll-mt-20">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold">4. Impacto Social Esperado</h2>
+                    <h2 class="text-3xl font-bold">Impacto Social Esperado</h2>
                     <p class="mt-3 max-w-3xl mx-auto text-gray-600">
                         O objetivo final do Conecta+ é gerar uma mudança positiva e mensurável. Esta seção detalha o impacto que esperamos alcançar e como mediremos nosso sucesso, combinando métricas quantitativas, visualizadas no gráfico, com avaliações qualitativas.
                     </p>
@@ -191,36 +270,10 @@
                     <p class="mt-8 text-center text-gray-600">Além dos números, o sucesso será medido por <strong>depoimentos qualitativos</strong>, que avaliam o impacto real na vida dos usuários, e pelo <strong>número de parcerias</strong> com ONGs, escolas e empresas.</p>
                 </div>
             </section>
-            
-            <section id="cursos" class="scroll-mt-20">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold">Cursos Gratuitos para Impulsionar sua Carreira</h2>
-                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
-                        Acreditamos que a educação é a chave para novas oportunidades. Por isso, selecionamos algumas das melhores plataformas com cursos online e gratuitos para você começar a aprender hoje mesmo.
-                    </p>
-                </div>
-                <div class="mt-10 grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-xl shadow-lg p-8 card">
-                        <h3 class="text-2xl font-semibold">Sebrae</h3>
-                        <p class="mt-4 text-gray-600">Ideal para quem sonha em empreender. Oferece cursos sobre marketing, finanças e gestão de negócios, ajudando a transformar ideias em realidade.</p>
-                        <a href="https://sebrae.com.br/sites/PortalSebrae/cursosonline" target="_blank" class="inline-block mt-4 font-semibold text-[#4A908A] hover:text-[#3a756f]">Ver Cursos</a>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 card">
-                        <h3 class="text-2xl font-semibold">Fundação Bradesco</h3>
-                        <p class="mt-4 text-gray-600">Com um catálogo variado, a Escola Virtual da Fundação Bradesco tem cursos de informática, administração, e desenvolvimento pessoal e profissional.</p>
-                        <a href="https://www.ev.org.br/" target="_blank" class="inline-block mt-4 font-semibold text-[#4A908A] hover:text-[#3a756f]">Ver Cursos</a>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 card">
-                        <h3 class="text-2xl font-semibold">GINEAD</h3>
-                        <p class="mt-4 text-gray-600">Uma plataforma com centenas de cursos para qualificação profissional em áreas como administração, contabilidade, e informática. Ideal para turbinar o currículo.</p>
-                        <a href="https://www.ginead.com.br/" target="_blank" class="inline-block mt-4 font-semibold text-[#4A908A] hover:text-[#3a756f]">Ver Cursos</a>
-                    </div>
-                </div>
-            </section>
 
             <section id="sustentabilidade" class="scroll-mt-20">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold">5. Sustentabilidade do Projeto</h2>
+                    <h2 class="text-3xl font-bold">Sustentabilidade do Projeto</h2>
                     <p class="mt-3 max-w-3xl mx-auto text-gray-600">
                         Para que o impacto seja duradouro, o projeto precisa ser sustentável. Aqui, explicamos nosso modelo de negócio social para a viabilidade financeira e nosso compromisso com a sustentabilidade ambiental através dos princípios de TI Verde.
                     </p>
@@ -243,68 +296,213 @@
                 </div>
             </section>
 
-            <section id="login" class="scroll-mt-20">
+            <section id="cursos" class="scroll-mt-20">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold">Acesse sua conta</h2>
+                    <h2 class="text-3xl font-bold">Cursos Gratuitos</h2>
                     <p class="mt-3 max-w-3xl mx-auto text-gray-600">
-                        Entre para acessar o conteúdo completo e suas atividades.
+                        Acesse cursos online de alta qualidade para desenvolver suas habilidades e contribuir para um futuro mais sustentável.
                     </p>
                 </div>
-                <div class="mt-10 bg-white rounded-xl shadow-lg p-8 md:p-12 max-w-lg mx-auto">
-                    <form action="#" method="POST" class="space-y-6">
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
-                            <div class="mt-1">
-                                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#4A908A] focus:border-[#4A908A] sm:text-sm">
-                            </div>
+                <div class="mt-10 grid md:grid-cols-2 gap-8">
+                    <!-- Cursos de Tecnologia -->
+                    <a href="https://www.freecodecamp.org/learn/responsive-web-design/" target="_blank" class="block">
+                        <div class="bg-white rounded-xl shadow-lg p-8 card">
+                            <h3 class="text-2xl font-semibold">💻 Desenvolvimento Web Básico</h3>
+                            <p class="mt-4 text-gray-600">Aprenda HTML, CSS e design responsivo com a FreeCodeCamp, uma plataforma 100% gratuita.</p>
+                            <p class="mt-2 text-blue-500 font-semibold hover:underline">Acessar Curso</p>
                         </div>
-                        <div>
-                            <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
-                            <div class="mt-1">
-                                <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#4A908A] focus:border-[#4A908A] sm:text-sm">
-                            </div>
+                    </a>
+                    
+                    <!-- Cursos de Sustentabilidade -->
+                    <a href="https://unccelearn.org/" target="_blank" class="block">
+                        <div class="bg-white rounded-xl shadow-lg p-8 card">
+                            <h3 class="text-2xl font-semibold">🌍 Sustentabilidade e Mudanças Climáticas</h3>
+                            <p class="mt-4 text-gray-600">Cursos sobre mudanças climáticas e ação sustentável, oferecidos pela ONU.</p>
+                            <p class="mt-2 text-blue-500 font-semibold hover:underline">Acessar UN CC:e-Learn</p>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-[#4A908A] focus:ring-[#4A908A] border-gray-300 rounded">
-                                <label for="remember-me" class="ml-2 block text-sm text-gray-900">Lembrar-me</label>
-                            </div>
-                            <div class="text-sm">
-                                <a href="#" class="font-medium text-[#4A908A] hover:text-[#3a756f]">Esqueceu a senha?</a>
-                            </div>
+                    </a>
+
+                    <!-- Cursos de Reciclagem -->
+                    <a href="https://www.youtube.com/watch?v=FqS7yC-Gv7U" target="_blank" class="block">
+                        <div class="bg-white rounded-xl shadow-lg p-8 card">
+                            <h3 class="text-2xl font-semibold">♻️ Coleta Seletiva e Reciclagem</h3>
+                            <p class="mt-4 text-gray-600">Tutorial completo sobre como fazer a coleta seletiva e a importância da reciclagem.</p>
+                            <p class="mt-2 text-blue-500 font-semibold hover:underline">Assistir no YouTube</p>
                         </div>
-                        <div>
-                            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#4A908A] hover:bg-[#3a756f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4A908A]">
-                                Entrar
-                            </button>
-                        </div>
-                    </form>
+                    </a>
                 </div>
             </section>
+
+            <section id="conteudo-recursos" class="scroll-mt-20">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">Conteúdo e Recursos</h2>
+                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
+                        Explore os recursos e módulos de conteúdo que a plataforma Conecta+ oferece para promover o desenvolvimento pessoal e profissional.
+                    </p>
+                </div>
+                <div class="mt-10 grid md:grid-cols-2 gap-8">
+                    <!-- Seção de Educação Básica -->
+                    <a href="https://www.khanacademy.org/pt" target="_blank" class="block">
+                        <div class="bg-white rounded-xl shadow-lg p-8 card">
+                            <h3 class="text-2xl font-semibold">🎓 Educação Básica</h3>
+                            <p class="mt-4 text-gray-600">Módulos de aprendizado e capacitação em matemática, português e ciências. Conteúdo de alta qualidade e totalmente gratuito.</p>
+                            <p class="mt-2 text-blue-500 font-semibold hover:underline">Acessar a Khan Academy</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Seção de Oportunidades de Emprego -->
+                    <a href="https://www.vagas.com.br" target="_blank" class="block">
+                        <div class="bg-white rounded-xl shadow-lg p-8 card">
+                            <h3 class="text-2xl font-semibold">💼 Oportunidades de Emprego</h3>
+                            <p class="mt-4 text-gray-600">Dicas sobre como criar um currículo, se preparar para entrevistas e encontrar vagas de trabalho remoto ou em sua região.</p>
+                            <p class="mt-2 text-blue-500 font-semibold hover:underline">Acessar Vagas.com</p>
+                        </div>
+                    </a>
+
+                    <!-- Seção de Orientações de Saúde -->
+                    <a href="https://bvsms.saude.gov.br/" target="_blank" class="block">
+                        <div class="bg-white rounded-xl shadow-lg p-8 card">
+                            <h3 class="text-2xl font-semibold">❤️ Orientações de Saúde</h3>
+                            <p class="mt-4 text-gray-600">Informações confiáveis sobre saúde e bem-estar, com foco em prevenção e cuidados básicos. Conteúdo do Ministério da Saúde.</p>
+                            <p class="mt-2 text-blue-500 font-semibold hover:underline">Acessar Biblioteca Virtual em Saúde</p>
+                        </div>
+                    </a>
+
+                    <!-- Seção de Direitos Civis -->
+                    <a href="http://www.planalto.gov.br/" target="_blank" class="block">
+                        <div class="bg-white rounded-xl shadow-lg p-8 card">
+                            <h3 class="text-2xl font-semibold">⚖️ Direitos Civis</h3>
+                            <p class="mt-4 text-gray-600">Guia sobre direitos básicos, acesso a serviços públicos e informações sobre como buscar ajuda legal.</p>
+                            <p class="mt-2 text-blue-500 font-semibold hover:underline">Acessar o Portal do Governo</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <section id="login-registro" class="scroll-mt-20">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">Acesse a Plataforma</h2>
+                    <p class="mt-3 max-w-3xl mx-auto text-gray-600">
+                        Faça login ou crie sua conta para começar!
+                    </p>
+                </div>
+                <div class="mt-10 bg-white rounded-xl shadow-lg p-8 md:p-12">
+                    <div id="authSection">
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="md:w-1/2">
+                                <h3 class="text-xl font-bold mb-4">Login</h3>
+                                <form id="loginForm" class="space-y-4">
+                                    <input type="email" name="email" placeholder="E-mail" class="w-full p-2 border rounded-md" required>
+                                    <input type="password" name="password" placeholder="Senha" class="w-full p-2 border rounded-md" required>
+                                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition-colors">Entrar</button>
+                                </form>
+                            </div>
+                            <div class="md:w-1/2">
+                                <h3 class="text-xl font-bold mb-4">Cadastre-se</h3>
+                                <form id="registerForm" class="space-y-4">
+                                    <input type="email" name="email" placeholder="E-mail" class="w-full p-2 border rounded-md" required>
+                                    <input type="password" name="password" placeholder="Senha" class="w-full p-2 border rounded-md" required>
+                                    <button type="submit" class="w-full bg-green-600 text-white font-bold py-2 rounded-md hover:bg-green-700 transition-colors">Criar Conta</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="profileSection" class="hidden">
+                        <div class="flex flex-col items-center justify-center p-4 bg-blue-50 rounded-lg shadow-inner mb-6">
+                            <p id="welcomeMessage" class="text-lg font-semibold text-center"></p>
+                            <p id="userIdDisplay" class="text-sm text-gray-500 mt-1 text-center"></p>
+                            <button id="logoutBtn" class="bg-red-500 text-white text-sm font-bold py-1 px-3 rounded-md hover:bg-red-600 transition-colors mt-4">Sair</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </main>
-<footer class="bg-gray-800 text-white mt-20">
+
+    <footer class="bg-gray-800 text-white mt-20">
         <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
             <p>&copy; 2025 Projeto Conecta+. Todos os direitos reservados.</p>
             <p class="text-sm text-gray-400 mt-1">Construindo um futuro digital mais inclusivo.</p>
-            <div class="mt-4 flex justify-center space-x-6">
-                <a href="https://www.linkedin.com/in/joaohugorodrigues/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
-                    <span class="sr-only">LinkedIn</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.755s.784-1.755 1.75-1.755 1.75.79 1.75 1.755-.783 1.755-1.75 1.755zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                </a>
-                <a href="https://github.com/joaohugorodrigues" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
-                    <span class="sr-only">GitHub</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.418 2.867 8.163 6.845 9.491.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.705-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.107-1.465-1.107-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.03 1.532 1.03.89 1.529 2.336 1.087 2.903.832.09-.645.35-1.087.636-1.339-2.22-.253-4.555-1.11-4.555-4.943 0-1.087.389-1.977 1.026-2.673-.102-.253-.446-1.268.096-2.645 0 0 .837-.268 2.748 1.028a9.497 9.497 0 012.5-.339c.844-.002 1.688.084 2.5.34 1.91-1.296 2.747-1.028 2.747-1.028.542 1.377.2 2.392.096 2.645.64.696 1.026 1.586 1.026 2.673 0 3.841-2.338 4.685-4.566 4.935.359.309.678.917.678 1.854V21.5c0 .26.182.57.688.484 3.97-1.328 6.837-5.073 6.837-9.492C22 6.484 17.523 2 12 2z" clip-rule="evenodd" />
-                    </svg>
-                </a>
-            </div>
         </div>
     </footer>
 
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signInAnonymously, signInWithCustomToken, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const profileSection = document.getElementById('profileSection');
+        const authSection = document.getElementById('authSection');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        const userIdDisplay = document.getElementById('userIdDisplay');
+
+        // Firebase configuration and initialization
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Autenticação
+        const trySignIn = async () => {
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token !== '') {
+                await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(auth);
+            }
+        };
+        trySignIn();
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                profileSection.classList.remove('hidden');
+                authSection.classList.add('hidden');
+                welcomeMessage.textContent = `Bem-vindo, ${user.email || 'Usuário Anônimo'}!`;
+                userIdDisplay.textContent = `Seu ID de Usuário: ${user.uid}`;
+            } else {
+                profileSection.classList.add('hidden');
+                authSection.classList.remove('hidden');
+            }
+        });
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = loginForm.email.value;
+            const password = loginForm.password.value;
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+            } catch (error) {
+                console.error("Erro de login:", error);
+                const errorMessage = document.createElement('p');
+                errorMessage.className = 'text-red-500 text-sm mt-2';
+                errorMessage.textContent = 'E-mail ou senha incorretos.';
+                loginForm.appendChild(errorMessage);
+            }
+        });
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = registerForm.email.value;
+            const password = registerForm.password.value;
+            try {
+                await createUserWithEmailAndPassword(auth, email, password);
+            } catch (error) {
+                console.error("Erro de registro:", error);
+                const errorMessage = document.createElement('p');
+                errorMessage.className = 'text-red-500 text-sm mt-2';
+                errorMessage.textContent = 'Erro ao criar conta. Verifique o e-mail ou a senha.';
+                registerForm.appendChild(errorMessage);
+            }
+        });
+
+        logoutBtn.addEventListener('click', async () => {
+            await signOut(auth);
+            trySignIn(); // Tenta fazer login anônimo novamente
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             const ctx = document.getElementById('impactoChart').getContext('2d');
             const impactoChart = new Chart(ctx, {
